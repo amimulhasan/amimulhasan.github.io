@@ -1,28 +1,524 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amimul Hasan</title>
+    <title>Amimul Hasan | Data Scientist & ML Engineer</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding-top: 100px;
-        }
-        h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
+            background-color: #f8f9fa;
         }
-        p {
+
+        /* Navbar */
+        nav {
+            background: #0f172a;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            background: #7dd3fc;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .btn-outline:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #0f172a;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #38bdf8;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-card h3 {
+            color: #0f172a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 6px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-card li::before {
+            content: "▹";
+            color: #38bdf8;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
             color: #666;
-            font-size: 18px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            background: #0f172a;
+            color: white;
+            padding: 80px 5%;
+            border-radius: 0;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-title::after {
+            background: #38bdf8;
+        }
+
+        .contact p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Hello, I am Amimul Hasan</h1>
-    <p>Data Scientist & Machine Learning Engineer</p>
-    <p>Welcome to my website!</p>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Amimul Hasan</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Hi, I'm <span>Amimul Hasan</span></h1>
+        <p>Data Scientist & Machine Learning Engineer</p>
+        <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px;">
+            Passionate about solving real-world problems using Data Science, Machine Learning & Deep Learning.
+        </p>
+        <a href="#projects" class="btn">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div>
+                <h3 style="color:#38bdf8; font-size: 4rem;">👨‍💻</h3>
+            </div>
+            <div class="about-text">
+                <h3>Data Scientist & Machine Learning Engineer</h3>
+                <p>
+                    I am a passionate Data Scientist and Machine Learning Engineer focused on building intelligent systems that solve real-world problems. 
+                    I have hands-on experience in developing end-to-end machine learning and deep learning projects.
+                </p>
+                <p>
+                    My expertise includes Computer Vision, Medical Image Analysis, Predictive Modeling, and Explainable AI. 
+                    I love working with complex datasets and turning them into actionable insights.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Machine Learning</h3>
+                <ul>
+                    <li>Supervised & Unsupervised Learning</li>
+                    <li>Regression & Classification</li>
+                    <li>Random Forest, SVM, XGBoost</li>
+                    <li>Model Evaluation & Tuning</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Deep Learning</h3>
+                <ul>
+                    <li>CNN, RNN, LSTM, GRU</li>
+                    <li>Vision Transformers (ViT)</li>
+                    <li>Transfer Learning</li>
+                    <li>PyTorch & TensorFlow</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Computer Vision</h3>
+                <ul>
+                    <li>Medical Image Analysis</li>
+                    <li>Image Segmentation (U-Net)</li>
+                    <li>Object Detection</li>
+                    <li>Explainable AI (XAI)</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Tools & Technologies</h3>
+                <ul>
+                    <li>Python, Pandas, NumPy</li>
+                    <li>Scikit-learn, OpenCV</li>
+                    <li>Jupyter, Git & GitHub</li>
+                    <li>Data Visualization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Alzheimer Detection (CNN + ViT)</h3>
+                    <p>Deep learning model combining CNN and Vision Transformer for Alzheimer's disease detection from MRI images.</p>
+                    <div class="project-tags">
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">CNN</span>
+                        <span class="tag">Vision Transformer</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/amimulhasan/alzheimer-cnn-vit-mri" target="_blank">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Brain Tumor Classification</h3>
+                    <p>Hybrid CNN-ViT-GRU model for accurate brain tumor detection and classification from MRI scans.</p>
+                    <div class="project-tags">
+                        <span class="tag">Medical Imaging</span>
+                        <span class="tag">CNN</span>
+                        <span class="tag">GRU</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/amimulhasan/brain-tumor-cnn-vit-gru" target="_blank">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Stroke Detection (CNN-BiGRU)</h3>
+                    <p>Multiscale CNN with BiGRU and Attention mechanism for stroke detection from medical images.</p>
+                    <div class="project-tags">
+                        <span class="tag">Attention</span>
+                        <span class="tag">BiGRU</span>
+                        <span class="tag">CNN</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/amimulhasan/multiscale-cnn-bigru-attention-stroke" target="_blank">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Explainable U-Net for Lung Segmentation</h3>
+                    <p>Multiple U-Net variants with explainability techniques for accurate lung segmentation.</p>
+                    <div class="project-tags">
+                        <span class="tag">U-Net</span>
+                        <span class="tag">Segmentation</span>
+                        <span class="tag">XAI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/amimulhasan/Explainable-U-Net-variants-for-lung-segmentation" target="_blank">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Credit Card Fraud Detection</h3>
+                    <p>Machine Learning based system to detect fraudulent credit card transactions with high accuracy.</p>
+                    <div class="project-tags">
+                        <span class="tag">Classification</span>
+                        <span class="tag">Imbalanced Data</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/amimulhasan/Credit-Card-Fraud-Detection-using-Machine-Learning" target="_blank">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Heart Disease Prediction</h3>
+                    <p>Logistic Regression based model for predicting heart disease risk using clinical data.</p>
+                    <div class="project-tags">
+                        <span class="tag">Logistic Regression</span>
+                        <span class="tag">Healthcare</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/amimulhasan/Heart-Disease-Prediction-with-Logistic-Regression" target="_blank">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p>I'm currently open to new opportunities and collaborations.<br>
+        Feel free to reach out if you'd like to work together!</p>
+        
+        <a href="https://github.com/amimulhasan" class="btn" target="_blank">GitHub Profile</a>
+        <a href="https://www.linkedin.com/" class="btn btn-outline" target="_blank">LinkedIn</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Amimul Hasan. Built with ❤️ using GitHub Pages</p>
+    </footer>
+
 </body>
 </html>
