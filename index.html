@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amimul A Hasan Rofik — Medical Image Analysis Researcher</title>
+<meta name="description" content="Biomedical engineer and AI researcher working on physics-informed generative models for medical image reconstruction, and deep learning for MRI, CT and ultrasound.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f5f7; --surface:#ffffff; --ink:#14202b; --muted:#566674;
+  --line:#d3dbe1; --accent:#0a6a86; --accent-soft:#dcedf2; --warn:#8a5a00; --warn-soft:#f6ead0;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e151b; --surface:#151e26; --ink:#e5ecf1; --muted:#93a3b0;
+    --line:#26333d; --accent:#62c4de; --accent-soft:#16303a; --warn:#e7c06a; --warn-soft:#352b12;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e151b; --surface:#151e26; --ink:#e5ecf1; --muted:#93a3b0;
+  --line:#26333d; --accent:#62c4de; --accent-soft:#16303a; --warn:#e7c06a; --warn-soft:#352b12;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:1080px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:280px 1fr;gap:64px}
+aside{position:sticky;top:48px;align-self:start}
+.photo{width:176px;height:176px;border-radius:50%;object-fit:cover;object-position:center 20%;background:var(--accent-soft);border:1px solid var(--line);display:block}
+h1{font:600 clamp(2.3rem,4.6vw,3rem)/1.05 var(--serif);letter-spacing:-.02em;margin:24px 0 8px}
+.role{color:var(--muted);margin:0 0 20px;font-size:.95rem}
+.links{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px 16px}
+.links a{font-weight:500;text-decoration:none;border-bottom:1px solid var(--line)}
+.links a:hover{border-color:var(--accent)}
+nav{margin-top:32px;display:flex;flex-direction:column;gap:4px;border-left:2px solid var(--line)}
+nav a{color:var(--muted);text-decoration:none;padding:2px 14px;margin-left:-2px;border-left:2px solid transparent}
+nav a:hover,nav a.on{color:var(--ink);border-left-color:var(--accent)}
+.theme{margin-top:28px;background:none;border:1px solid var(--line);color:var(--muted);font:inherit;font-size:.85rem;padding:4px 12px;border-radius:999px;cursor:pointer}
+.theme:hover{color:var(--ink);border-color:var(--accent)}
+
+main section{padding-bottom:48px;scroll-margin-top:32px}
+h2{font:600 1.7rem/1.2 var(--serif);margin:0 0 16px}
+h3.sub{font:600 1.05rem/1.3 var(--serif);margin:28px 0 0;color:var(--muted)}
+p{margin:0 0 14px;max-width:68ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:20px 0 0}
+.tags li{background:var(--accent-soft);color:var(--accent);padding:3px 12px;border-radius:999px;font-size:.88rem;font-weight:500}
+
+.news{list-style:none;padding:0;margin:0}
+.news li{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.news time{color:var(--muted);font-size:.9rem}
+
+.pubs{list-style:none;padding:0;margin:0}
+.pub{padding:18px 0;border-bottom:1px solid var(--line)}
+.pub h4{font:600 1.08rem/1.4 var(--serif);margin:0 0 4px}
+.pub h4 a{color:var(--ink);text-decoration:none}
+.pub h4 a:hover{color:var(--accent);text-decoration:underline}
+.authors{font-size:.92rem;margin:0 0 2px}
+.venue{color:var(--muted);font-size:.88rem;margin:0}
+.badge{display:inline-block;font:500 .75rem/1 var(--sans);padding:3px 8px;border-radius:999px;background:var(--warn-soft);color:var(--warn);margin-left:8px;vertical-align:2px}
+
+.edu{list-style:none;padding:0;margin:0}
+.edu li{padding:10px 0;border-bottom:1px solid var(--line)}
+.edu b{font-weight:600}
+.edu span{display:block;color:var(--muted);font-size:.92rem}
+
+footer{max-width:1080px;margin:0 auto;padding:24px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+
+@media (max-width:820px){
+  .wrap{grid-template-columns:1fr;gap:32px;padding-top:32px}
+  aside{position:static}
+  nav{flex-direction:row;flex-wrap:wrap;border-left:0;gap:6px 16px}
+  nav a{padding:0;margin:0;border:0}
+  .news li{grid-template-columns:1fr;gap:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <img class="photo" src="images/me.jpg" alt="Portrait of Amimul A Hasan Rofik">
+    <h1>Amimul A Hasan Rofik</h1>
+    <p class="role">M.Sc. student, Biomedical Engineering<br>Islamic University, Kushtia, Bangladesh</p>
+    <ul class="links">
+      <li><a href="mailto:amimulhasan35@gmail.com">Email</a></li>
+      <li><a href="data/CV.pdf">CV</a></li>
+      <li><a href="https://scholar.google.com/citations?user=teUaLswAAAAJ&hl=en">Scholar</a></li>
+      <li><a href="https://github.com/amimulhasan">GitHub</a></li>
+      <li><a href="https://huggingface.co/AmimulBmeIU">Hugging Face</a></li>
+      <li><a href="https://www.linkedin.com/in/amimul-a-hasan-rofik-1b557a2a6/">LinkedIn</a></li>
+      <li><a href="https://orcid.org/0009-0009-6088-100X">ORCID</a></li>
+    </ul>
+    <nav id="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#education">Education</a>
+    </nav>
+    <button class="theme" id="theme" type="button">Toggle theme</button>
+  </aside>
+
+  <main id="main">
+    <section id="about">
+      <h2>About</h2>
+      <p>I’m a biomedical engineer and AI researcher in the <a href="https://birlbme.com/">BioImage Research Lab (BIRL)</a>, Department of Biomedical Engineering, <a href="https://www.bme.iu.ac.bd/">Islamic University, Kushtia</a>, where I’m an M.Sc. student.</p>
+      <p>My M.Sc. thesis builds a <strong>physics-guided conditional diffusion</strong> framework that recovers high-fidelity, uncertainty-aware ultrasound images from sparse plane-wave RF data. I want to extend this line of work to MRI and CT, with methods that are accurate, trustworthy and efficient enough for real-time, resource-constrained clinical use.</p>
+      <p>I’m seeking a <strong>fully funded PhD</strong> in physics-informed generative models for medical image reconstruction. My training includes clinical exposure in radiology, ultrasound and nuclear medicine.</p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <p>Alongside my thesis, I study deep learning for diagnosis from medical images, using CNN, transformer and attention-based architectures with explainable AI for brain tumor, stroke, Alzheimer’s and breast cancer detection and classification.</p>
+      <ul class="tags">
+        <li>Physics-informed generative AI</li>
+        <li>Diffusion models</li>
+        <li>Medical image reconstruction</li>
+        <li>Ultrasound, MRI and CT</li>
+        <li>Explainable AI</li>
+        <li>Vision Transformers</li>
+      </ul>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news">
+        <li><time>Sep 2026</time><span>Submitted <em>DCNU-Net</em>, a multi-task network for retinal vessel segmentation, classification and thickness regression, to <em>Biomedical Signal Processing and Control</em>.</span></li>
+        <li><time>Aug 2026</time><span>Submitted a brain tumor classification manuscript on multi-CNN feature fusion and normalization benchmarking to <em>Biomedical Signal Processing and Control</em>.</span></li>
+        <li><time>Aug 2026</time><span>Gave an oral presentation at SPICSCON 2026, hosted at BAUET, Natore.</span></li>
+        <li><time>Apr 2026</time><span>Presented three first-author papers at IEEE QPAIN 2026 in Chittagong.</span></li>
+        <li><time>Nov 2025</time><span>Started my M.Sc. in Biomedical Engineering.</span></li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <p>My name is in bold. <a href="https://scholar.google.com/citations?user=teUaLswAAAAJ&hl=en">Google Scholar</a> has the full list.</p>
+
+      <h3 class="sub">Under review</h3>
+      <ul class="pubs">
+        <li class="pub">
+          <h4>DCNU-Net: A Multi-Task Deformable Convolutional Network for Simultaneous Retinal Vessel Segmentation, Classification, and Thickness Regression<span class="badge">Under review</span></h4>
+          <p class="authors"><b>A. A. Hasan Rofik</b>, M. K. Islam</p>
+          <p class="venue">Biomedical Signal Processing and Control · submitted Sep 2026</p>
+        </li>
+        <li class="pub">
+          <h4>Towards Clinically Reliable Brain Tumor Classification: Multi-CNN Feature Fusion, Systematic Normalization Benchmarking, and XAI-Driven Insights<span class="badge">Under review</span></h4>
+          <p class="authors"><b>A. A. Hasan Rofik</b>, M. K. Islam</p>
+          <p class="venue">Biomedical Signal Processing and Control · submitted Aug 2026</p>
+        </li>
+      </ul>
+
+      <h3 class="sub">Published, first author</h3>
+      <ul class="pubs">
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/QPAIN69676.2026.11546240">Integrating CNN and ViT for High-Accuracy Alzheimer’s Disease Detection and Staging from MRI</a></h4>
+          <p class="authors"><b>A. A. Hasan Rofik</b>, I. F. Liva, M. Y. Ali, A. Islam, S. B. A. Khan, M. S. Hossain</p>
+          <p class="venue">IEEE QPAIN · 2026</p>
+        </li>
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/QPAIN69676.2026.11545706">A Multi-Path Deep Learning Model for Enhanced Brain Tumor Diagnosis Using MRI Images</a></h4>
+          <p class="authors"><b>A. A. Hasan Rofik</b>, S. B. A. Khan, J. Mia, M. Y. Ali, A. Islam, M. S. Hossain</p>
+          <p class="venue">IEEE QPAIN · 2026</p>
+        </li>
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/QPAIN69676.2026.11545661">MultiScale-CNN-BiGRU-Attention Framework for Automated CT-Based Brain Stroke Classification</a></h4>
+          <p class="authors"><b>A. A. Hasan Rofik</b>, M. Y. Ali, S. B. A. Khan, A. Islam, I. F. Liva, M. A. H. Joy</p>
+          <p class="venue">IEEE QPAIN · 2026</p>
+        </li>
+      </ul>
+
+      <h3 class="sub">Published, co-author</h3>
+      <ul class="pubs">
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/QPAIN69676.2026.11546596">A Transformer-Based Sequential Modeling Network for Multimodal Stroke Diagnosis with Enhanced Explainable AI</a></h4>
+          <p class="authors">M. S. H. Sakib, M. A. Tuta, N. J. Ahmad, I. F. Liva, A. Islam, <b>A. A. Hasan Rofik</b>, F. Ahmmed, S. M. Mahim, M. E. Hossen</p>
+          <p class="venue">IEEE QPAIN · 2026</p>
+        </li>
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/QPAIN69676.2026.11545924">ACCTUNet: Multi-Scale Attention and Transformer-Based Context Modeling for Efficient and Accurate Brain Tumor Segmentation in MRI</a></h4>
+          <p class="authors">M. E. Hossen, S. M. Mahim, M. A. Tuta, T. Aziz, N. J. Ahmad, <b>A. A. Hasan Rofik</b>, M. A. R. Rabby, F. Ahmmed, A. Islam</p>
+          <p class="venue">IEEE QPAIN · 2026</p>
+        </li>
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/ICCIT68739.2025.11490514">TransCBAMNet: Multi-Modal Attention Fusion for Brain Tumor Classification Using Hybrid CNN-Transformer Architecture</a></h4>
+          <p class="authors">M. T. H. Ashik, M. E. Hossen, <b>A. A. Hasan Rofik</b>, R. Zaman, N. J. Ahmad, M. A. R. Rabby, M. K. Islam</p>
+          <p class="venue">ICCIT · 2025</p>
+        </li>
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/ICCIT68739.2025.11491417">A Hybrid Swin Transformer–VGG19 Framework Enhanced with Explainable Artificial Intelligence for Accurate Brain Tumor Detection and Classification Using MRI Data</a></h4>
+          <p class="authors">M. R. H. Rakib, M. M. Ahmed, R. Hashan, M. T. H. Nirob, <b>A. A. Hasan Rofik</b>, M. M. R. Anik, M. A. Hasan, M. K. Islam</p>
+          <p class="venue">ICCIT · 2025</p>
+        </li>
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/ICCIT68739.2025.11491264">Attention-Guided Hybrid Convolutional Neural Networks for Accurate Breast Cancer Detection with Explainable AI</a></h4>
+          <p class="authors">M. O. Hasan, <b>A. A. Hasan Rofik</b>, S. B. A. Khan, J. Mia, R. Islam, N. Aktar, M. K. Islam</p>
+          <p class="venue">ICCIT · 2025</p>
+        </li>
+        <li class="pub">
+          <h4><a href="https://doi.org/10.1109/BECITHCON69222.2025.11504275">Efficient and Accurate Multiclass Brain Tumor Classification from MRI Using a Lightweight ConvNeXt Architecture for Clinical Integration</a></h4>
+          <p class="authors">M. O. Hasan, N. J. Ahmad, K. R. Nowrin, J. Mia, S. B. A. Khan, <b>A. A. Hasan Rofik</b>, R. Islam, M. K. Islam, M. S. Mia</p>
+          <p class="venue">IEEE BECITHCON · 2025</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="talks">
+      <h2>Talks</h2>
+      <p>Oral presentations of first-author papers at international IEEE conferences.</p>
+      <ul class="edu">
+        <li><b>Cross-Attention Fusion of EfficientNet and Vision Transformer for Accurate Breast Cancer Classification from Histopathological Images</b><span>IEEE SPICSCON 2026 · 13–14 Aug 2026 · BAUET, Natore</span></li>
+        <li><b>Integrating CNN and ViT for High-Accuracy Alzheimer’s Disease Detection and Staging from MRI</b><span>IEEE QPAIN 2026 · 16–18 Apr 2026 · Chittagong</span></li>
+        <li><b>A Multi-Path Deep Learning Model for Enhanced Brain Tumor Diagnosis Using MRI Images</b><span>IEEE QPAIN 2026 · 16–18 Apr 2026 · Chittagong</span></li>
+        <li><b>MultiScale-CNN-BiGRU-Attention Framework for Automated CT-Based Brain Stroke Classification</b><span>IEEE QPAIN 2026 · 16–18 Apr 2026 · Chittagong</span></li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education and training</h2>
+      <ul class="edu">
+        <li><b>M.Sc. in Biomedical Engineering</b> (thesis ongoing)<span>Islamic University, Kushtia · Nov 2025 – present</span></li>
+        <li><b>B.Sc. in Biomedical Engineering</b> (CGPA 3.30 / 4.00)<span>Islamic University, Kushtia · Jan 2020 – Oct 2025</span></li>
+        <li><b>Research Member, BioImage Research Lab (BIRL)</b><span>Dept. of Biomedical Engineering, Islamic University · Jun 2023 – present</span></li>
+        <li><b>Fieldwork in Pathology and Radiology</b><span>The Comfort Diagnostic Centre, Kushtia · Jan 2026</span></li>
+        <li><b>Field study on nuclear medicine and therapeutic technologies</b> (PET-CT, radiotherapy, LINAC)<span>INMP, BAEC · Sep 2024</span></li>
+        <li><b>Internship in ultrasound and diagnostic imaging</b><span>Shamima Clinic, Jhenidah · 15 days</span></li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer>© <span id="yr"></span> Amimul A Hasan Rofik. Layout inspired by <a href="https://metalicana.github.io/">metalicana.github.io</a>.</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const root = document.documentElement;
+try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+document.getElementById('theme').addEventListener('click', () => {
+  const dark = getComputedStyle(root).getPropertyValue('--bg').trim() === '#0e151b';
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+});
+
+const links = [...document.querySelectorAll('#nav a')];
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.hash === '#' + e.target.id));
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+document.querySelectorAll('main section').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
